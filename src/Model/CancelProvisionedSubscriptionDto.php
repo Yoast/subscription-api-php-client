@@ -212,7 +212,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
     /**
      * Sets immediately
      *
-     * @param bool $immediately Immediately will cancel the subscription directly, otherwise it will end when the period has expired.
+     * @param bool $immediately (optional) Immediately will cancel the subscription directly,otherwise it will end when the period has expired. Default is false
      *
      * @return $this
      */

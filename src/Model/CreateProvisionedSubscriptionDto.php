@@ -296,7 +296,7 @@ class CreateProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
     /**
      * Sets site
      *
-     * @param string $site The site URL that the subscription needs to be connectd to.
+     * @param string $site (optional) The site URL that the subscription needs to be connected to.
      *
      * @return $this
      */
@@ -320,7 +320,7 @@ class CreateProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string $firstName The first name of the customer.
+     * @param string $firstName (optional) The first name of the customer.
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class CreateProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string $lastName The last name of the customers.
+     * @param string $lastName (optional) The last name of the customers.
      *
      * @return $this
      */
