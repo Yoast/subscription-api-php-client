@@ -211,6 +211,15 @@ class CreateProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
         if ($this->container['productCode'] === null) {
             $invalidProperties[] = "'productCode' can't be null";
         }
+        if ($this->container['site'] === null) {
+            $invalidProperties[] = "'site' can't be null";
+        }
+        if ($this->container['firstName'] === null) {
+            $invalidProperties[] = "'firstName' can't be null";
+        }
+        if ($this->container['lastName'] === null) {
+            $invalidProperties[] = "'lastName' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -287,7 +296,7 @@ class CreateProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
     /**
      * Sets site
      *
-     * @param string $site The site URL that the subscription needs to be connected to.
+     * @param string $site The site URL that the subscription needs to be connectd to.
      *
      * @return $this
      */

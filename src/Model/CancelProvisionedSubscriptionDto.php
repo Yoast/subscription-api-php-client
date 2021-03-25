@@ -169,7 +169,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['immediately'] = isset($data['immediately']) ? $data['immediately'] : false;
+        $this->container['immediately'] = isset($data['immediately']) ? $data['immediately'] : null;
     }
 
     /**
@@ -181,6 +181,9 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['immediately'] === null) {
+            $invalidProperties[] = "'immediately' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -209,7 +212,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
     /**
      * Sets immediately
      *
-     * @param bool $immediately Immediately will cancel the subscription directly,otherwise it will end when the period has expired.
+     * @param bool $immediately Immediately will cancel the subscription directly, otherwise it will end when the period has expired.
      *
      * @return $this
      */
