@@ -1,6 +1,6 @@
 <?php
 /**
- * ProvisioningAccountApi
+ * ProvisioningUsersApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use Yoast\ProvisionerApiClient\HeaderSelector;
 use Yoast\ProvisionerApiClient\ObjectSerializer;
 
 /**
- * ProvisioningAccountApi Class Doc Comment
+ * ProvisioningUsersApi Class Doc Comment
  *
  * @category Class
  * @package  Yoast\ProvisionerApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ProvisioningAccountApi
+class ProvisioningUsersApi
 {
     /**
      * @var ClientInterface
@@ -87,35 +87,37 @@ class ProvisioningAccountApi
     }
 
     /**
-     * Operation apiProvisioningAccountRegenerateTokenPost
+     * Operation apiProvisioningUserScheduleDeletePost
      *
-     * Generate a new auth token
+     * Schedule a delete for a subscription
      *
+     * @param  \Yoast\ProvisionerApiClient\Model\ScheduleDeleteUserDto $body body (required)
      *
      * @throws \Yoast\ProvisionerApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Yoast\ProvisionerApiClient\Model\RegenerateTokenResponseDto
+     * @return \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto
      */
-    public function apiProvisioningAccountRegenerateTokenPost()
+    public function apiProvisioningUserScheduleDeletePost($body)
     {
-        list($response) = $this->apiProvisioningAccountRegenerateTokenPostWithHttpInfo();
+        list($response) = $this->apiProvisioningUserScheduleDeletePostWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation apiProvisioningAccountRegenerateTokenPostWithHttpInfo
+     * Operation apiProvisioningUserScheduleDeletePostWithHttpInfo
      *
-     * Generate a new auth token
+     * Schedule a delete for a subscription
      *
+     * @param  \Yoast\ProvisionerApiClient\Model\ScheduleDeleteUserDto $body (required)
      *
      * @throws \Yoast\ProvisionerApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Yoast\ProvisionerApiClient\Model\RegenerateTokenResponseDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiProvisioningAccountRegenerateTokenPostWithHttpInfo()
+    public function apiProvisioningUserScheduleDeletePostWithHttpInfo($body)
     {
-        $returnType = '\Yoast\ProvisionerApiClient\Model\RegenerateTokenResponseDto';
-        $request = $this->apiProvisioningAccountRegenerateTokenPostRequest();
+        $returnType = '\Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto';
+        $request = $this->apiProvisioningUserScheduleDeletePostRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -166,7 +168,7 @@ class ProvisioningAccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Yoast\ProvisionerApiClient\Model\RegenerateTokenResponseDto',
+                        '\Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -177,17 +179,18 @@ class ProvisioningAccountApi
     }
 
     /**
-     * Operation apiProvisioningAccountRegenerateTokenPostAsync
+     * Operation apiProvisioningUserScheduleDeletePostAsync
      *
-     * Generate a new auth token
+     * Schedule a delete for a subscription
      *
+     * @param  \Yoast\ProvisionerApiClient\Model\ScheduleDeleteUserDto $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiProvisioningAccountRegenerateTokenPostAsync()
+    public function apiProvisioningUserScheduleDeletePostAsync($body)
     {
-        return $this->apiProvisioningAccountRegenerateTokenPostAsyncWithHttpInfo()
+        return $this->apiProvisioningUserScheduleDeletePostAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -196,18 +199,19 @@ class ProvisioningAccountApi
     }
 
     /**
-     * Operation apiProvisioningAccountRegenerateTokenPostAsyncWithHttpInfo
+     * Operation apiProvisioningUserScheduleDeletePostAsyncWithHttpInfo
      *
-     * Generate a new auth token
+     * Schedule a delete for a subscription
      *
+     * @param  \Yoast\ProvisionerApiClient\Model\ScheduleDeleteUserDto $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiProvisioningAccountRegenerateTokenPostAsyncWithHttpInfo()
+    public function apiProvisioningUserScheduleDeletePostAsyncWithHttpInfo($body)
     {
-        $returnType = '\Yoast\ProvisionerApiClient\Model\RegenerateTokenResponseDto';
-        $request = $this->apiProvisioningAccountRegenerateTokenPostRequest();
+        $returnType = '\Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto';
+        $request = $this->apiProvisioningUserScheduleDeletePostRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -247,16 +251,23 @@ class ProvisioningAccountApi
     }
 
     /**
-     * Create request for operation 'apiProvisioningAccountRegenerateTokenPost'
+     * Create request for operation 'apiProvisioningUserScheduleDeletePost'
      *
+     * @param  \Yoast\ProvisionerApiClient\Model\ScheduleDeleteUserDto $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function apiProvisioningAccountRegenerateTokenPostRequest()
+    protected function apiProvisioningUserScheduleDeletePostRequest($body)
     {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling apiProvisioningUserScheduleDeletePost'
+            );
+        }
 
-        $resourcePath = '/api/provisioning/account/regenerate-token';
+        $resourcePath = '/api/provisioning/user/schedule-delete';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -267,6 +278,9 @@ class ProvisioningAccountApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -275,7 +289,7 @@ class ProvisioningAccountApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 

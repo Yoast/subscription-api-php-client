@@ -1,6 +1,6 @@
 # Yoast\ProvisionerApiClient\ProvisioningDownloadsApi
 
-All URIs are relative to *http://my.yoast.test:3000/*
+All URIs are relative to *https://my.yoast.test:3000/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -57,7 +57,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **apiProvisioningDownloadsCurrentZipGet**
-> string apiProvisioningDownloadsCurrentZipGet($productCode)
+> apiProvisioningDownloadsCurrentZipGet($productCode)
 
 Redirect to the current zip for the productCode.
 
@@ -76,8 +76,7 @@ $apiInstance = new Yoast\ProvisionerApiClient\Api\ProvisioningDownloadsApi(
 $productCode = "productCode_example"; // string | The code used to create the product.
 
 try {
-    $result = $apiInstance->apiProvisioningDownloadsCurrentZipGet($productCode);
-    print_r($result);
+    $apiInstance->apiProvisioningDownloadsCurrentZipGet($productCode);
 } catch (Exception $e) {
     echo 'Exception when calling ProvisioningDownloadsApi->apiProvisioningDownloadsCurrentZipGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -92,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+void (empty response body)
 
 ### Authorization
 
@@ -101,7 +100,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

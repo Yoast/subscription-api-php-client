@@ -1,6 +1,6 @@
 # Yoast\ProvisionerApiClient\ProvisioningAccountApi
 
-All URIs are relative to *http://my.yoast.test:3000/*
+All URIs are relative to *https://my.yoast.test:3000/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
