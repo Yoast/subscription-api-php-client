@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 Generate a new auth token
 
-This route generate a new Basic Auth token that is used for provisioner accounts to authenticate with.After this route is called, the old token will NO LONGER be valid. Please store the response of this request somewhere safe!
+This route generate a new password for the Basic Auth that is used by provisioner accounts to authenticate with.After this route is called, the old password will NO LONGER be valid. Please store the response of this request somewhere safe!
 
 ### Example
 ```php
