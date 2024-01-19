@@ -1,13 +1,13 @@
 # Yoast\ProvisionerApiClient\ProvisioningAccountApi
 
-All URIs are relative to *https://my.yoast.test:3000/*
+All URIs are relative to *https://my.yoast.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiProvisioningAccountRegenerateTokenPost**](ProvisioningAccountApi.md#apiprovisioningaccountregeneratetokenpost) | **POST** /api/provisioning/account/regenerate-token | Generate a new auth token
+[**provisioningAccountControllerSetSiteForSubscription**](ProvisioningAccountApi.md#provisioningaccountcontrollersetsiteforsubscription) | **POST** /api/provisioning/account/regenerate-token | Generate a new auth token
 
-# **apiProvisioningAccountRegenerateTokenPost**
-> \Yoast\ProvisionerApiClient\Model\RegenerateTokenResponseDto apiProvisioningAccountRegenerateTokenPost()
+# **provisioningAccountControllerSetSiteForSubscription**
+> \Yoast\ProvisionerApiClient\Model\RegenerateTokenResponseDto provisioningAccountControllerSetSiteForSubscription()
 
 Generate a new auth token
 
@@ -17,18 +17,24 @@ This route generate a new password for the Basic Auth that is used by provisione
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\ProvisioningAccountApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
-    $result = $apiInstance->apiProvisioningAccountRegenerateTokenPost();
+    $result = $apiInstance->provisioningAccountControllerSetSiteForSubscription();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProvisioningAccountApi->apiProvisioningAccountRegenerateTokenPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProvisioningAccountApi->provisioningAccountControllerSetSiteForSubscription: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -42,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 

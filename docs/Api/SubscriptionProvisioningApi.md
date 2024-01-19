@@ -1,90 +1,47 @@
 # Yoast\ProvisionerApiClient\SubscriptionProvisioningApi
 
-All URIs are relative to *https://my.yoast.test:3000/*
+All URIs are relative to *https://my.yoast.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiProvisioningSubscriptionsCreatePost**](SubscriptionProvisioningApi.md#apiprovisioningsubscriptionscreatepost) | **POST** /api/provisioning/subscriptions/create | Create a subscription
-[**apiProvisioningSubscriptionsIdCancelPost**](SubscriptionProvisioningApi.md#apiprovisioningsubscriptionsidcancelpost) | **POST** /api/provisioning/subscriptions/{id}/cancel | Cancel a single subscription
-[**apiProvisioningSubscriptionsIdGet**](SubscriptionProvisioningApi.md#apiprovisioningsubscriptionsidget) | **GET** /api/provisioning/subscriptions/{id} | Get a subscription
-[**apiProvisioningSubscriptionsIdRefundPost**](SubscriptionProvisioningApi.md#apiprovisioningsubscriptionsidrefundpost) | **POST** /api/provisioning/subscriptions/{id}/refund | Refund a single subscription
-[**apiProvisioningSubscriptionsIdRenewPost**](SubscriptionProvisioningApi.md#apiprovisioningsubscriptionsidrenewpost) | **POST** /api/provisioning/subscriptions/{id}/renew | Renew a subscription
-[**apiProvisioningSubscriptionsIdSetSitePost**](SubscriptionProvisioningApi.md#apiprovisioningsubscriptionsidsetsitepost) | **POST** /api/provisioning/subscriptions/{id}/set-site | Link a subscription to a site
+[**subscriptionProvisioningControllerCancelSubscription**](SubscriptionProvisioningApi.md#subscriptionprovisioningcontrollercancelsubscription) | **POST** /api/provisioning/subscriptions/{id}/cancel | Cancel a single subscription
+[**subscriptionProvisioningControllerCreate**](SubscriptionProvisioningApi.md#subscriptionprovisioningcontrollercreate) | **POST** /api/provisioning/subscriptions/create | Create a subscription
+[**subscriptionProvisioningControllerGetOne**](SubscriptionProvisioningApi.md#subscriptionprovisioningcontrollergetone) | **GET** /api/provisioning/subscriptions/{id} | Get a subscription
+[**subscriptionProvisioningControllerRefundSubscription**](SubscriptionProvisioningApi.md#subscriptionprovisioningcontrollerrefundsubscription) | **POST** /api/provisioning/subscriptions/{id}/refund | Refund a single subscription
+[**subscriptionProvisioningControllerRenewSubscription**](SubscriptionProvisioningApi.md#subscriptionprovisioningcontrollerrenewsubscription) | **POST** /api/provisioning/subscriptions/{id}/renew | Renew a subscription
+[**subscriptionProvisioningControllerSetSiteForSubscription**](SubscriptionProvisioningApi.md#subscriptionprovisioningcontrollersetsiteforsubscription) | **POST** /api/provisioning/subscriptions/{id}/set-site | Link a subscription to a site
 
-# **apiProvisioningSubscriptionsCreatePost**
-> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto apiProvisioningSubscriptionsCreatePost($body)
-
-Create a subscription
-
-Creates a subscription for a customer.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$apiInstance = new Yoast\ProvisionerApiClient\Api\SubscriptionProvisioningApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$body = new \Yoast\ProvisionerApiClient\Model\CreateProvisionedSubscriptionDto(); // \Yoast\ProvisionerApiClient\Model\CreateProvisionedSubscriptionDto | 
-
-try {
-    $result = $apiInstance->apiProvisioningSubscriptionsCreatePost($body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SubscriptionProvisioningApi->apiProvisioningSubscriptionsCreatePost: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Yoast\ProvisionerApiClient\Model\CreateProvisionedSubscriptionDto**](../Model/CreateProvisionedSubscriptionDto.md)|  |
-
-### Return type
-
-[**\Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto**](../Model/SubscriptionProvisioningResponseDto.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **apiProvisioningSubscriptionsIdCancelPost**
-> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto apiProvisioningSubscriptionsIdCancelPost($body, $id)
+# **subscriptionProvisioningControllerCancelSubscription**
+> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto subscriptionProvisioningControllerCancelSubscription($body, $id)
 
 Cancel a single subscription
 
-Cancel the subscription when the period ends or immediately.
+Cancel the subscription when the period ends, or immediately if that is requested, or the subscription is not valid
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\SubscriptionProvisioningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Yoast\ProvisionerApiClient\Model\CancelProvisionedSubscriptionDto(); // \Yoast\ProvisionerApiClient\Model\CancelProvisionedSubscriptionDto | 
 $id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 
 try {
-    $result = $apiInstance->apiProvisioningSubscriptionsIdCancelPost($body, $id);
+    $result = $apiInstance->subscriptionProvisioningControllerCancelSubscription($body, $id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SubscriptionProvisioningApi->apiProvisioningSubscriptionsIdCancelPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SubscriptionProvisioningApi->subscriptionProvisioningControllerCancelSubscription: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -102,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 
@@ -111,8 +68,63 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **apiProvisioningSubscriptionsIdGet**
-> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto apiProvisioningSubscriptionsIdGet($id)
+# **subscriptionProvisioningControllerCreate**
+> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto subscriptionProvisioningControllerCreate($body)
+
+Create a subscription
+
+Creates a subscription for a customer.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+
+$apiInstance = new Yoast\ProvisionerApiClient\Api\SubscriptionProvisioningApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Yoast\ProvisionerApiClient\Model\CreateProvisionedSubscriptionDto(); // \Yoast\ProvisionerApiClient\Model\CreateProvisionedSubscriptionDto | 
+
+try {
+    $result = $apiInstance->subscriptionProvisioningControllerCreate($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SubscriptionProvisioningApi->subscriptionProvisioningControllerCreate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Yoast\ProvisionerApiClient\Model\CreateProvisionedSubscriptionDto**](../Model/CreateProvisionedSubscriptionDto.md)|  |
+
+### Return type
+
+[**\Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto**](../Model/SubscriptionProvisioningResponseDto.md)
+
+### Authorization
+
+[basic](../../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **subscriptionProvisioningControllerGetOne**
+> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto subscriptionProvisioningControllerGetOne($id)
 
 Get a subscription
 
@@ -122,19 +134,25 @@ Get a single subscription that was provisioned for a third party
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\SubscriptionProvisioningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 
 try {
-    $result = $apiInstance->apiProvisioningSubscriptionsIdGet($id);
+    $result = $apiInstance->subscriptionProvisioningControllerGetOne($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SubscriptionProvisioningApi->apiProvisioningSubscriptionsIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SubscriptionProvisioningApi->subscriptionProvisioningControllerGetOne: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -151,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 
@@ -160,8 +178,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **apiProvisioningSubscriptionsIdRefundPost**
-> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto apiProvisioningSubscriptionsIdRefundPost($id)
+# **subscriptionProvisioningControllerRefundSubscription**
+> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto subscriptionProvisioningControllerRefundSubscription($id)
 
 Refund a single subscription
 
@@ -171,19 +189,25 @@ Refund the subscription.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\SubscriptionProvisioningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 
 try {
-    $result = $apiInstance->apiProvisioningSubscriptionsIdRefundPost($id);
+    $result = $apiInstance->subscriptionProvisioningControllerRefundSubscription($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SubscriptionProvisioningApi->apiProvisioningSubscriptionsIdRefundPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SubscriptionProvisioningApi->subscriptionProvisioningControllerRefundSubscription: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -200,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 
@@ -209,8 +233,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **apiProvisioningSubscriptionsIdRenewPost**
-> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto apiProvisioningSubscriptionsIdRenewPost($id)
+# **subscriptionProvisioningControllerRenewSubscription**
+> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto subscriptionProvisioningControllerRenewSubscription($id)
 
 Renew a subscription
 
@@ -220,19 +244,25 @@ Renew the subscription for a new period.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\SubscriptionProvisioningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 
 try {
-    $result = $apiInstance->apiProvisioningSubscriptionsIdRenewPost($id);
+    $result = $apiInstance->subscriptionProvisioningControllerRenewSubscription($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SubscriptionProvisioningApi->apiProvisioningSubscriptionsIdRenewPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SubscriptionProvisioningApi->subscriptionProvisioningControllerRenewSubscription: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -249,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 
@@ -258,8 +288,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **apiProvisioningSubscriptionsIdSetSitePost**
-> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto apiProvisioningSubscriptionsIdSetSitePost($body, $id)
+# **subscriptionProvisioningControllerSetSiteForSubscription**
+> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto subscriptionProvisioningControllerSetSiteForSubscription($body, $id)
 
 Link a subscription to a site
 
@@ -269,20 +299,26 @@ Links the subscription to a customer's website. Setting a site the the subscript
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\SubscriptionProvisioningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Yoast\ProvisionerApiClient\Model\SetProvisionedSiteDto(); // \Yoast\ProvisionerApiClient\Model\SetProvisionedSiteDto | 
 $id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 
 try {
-    $result = $apiInstance->apiProvisioningSubscriptionsIdSetSitePost($body, $id);
+    $result = $apiInstance->subscriptionProvisioningControllerSetSiteForSubscription($body, $id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SubscriptionProvisioningApi->apiProvisioningSubscriptionsIdSetSitePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SubscriptionProvisioningApi->subscriptionProvisioningControllerSetSiteForSubscription: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -300,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 

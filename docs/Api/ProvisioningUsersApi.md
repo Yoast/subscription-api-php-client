@@ -1,13 +1,13 @@
 # Yoast\ProvisionerApiClient\ProvisioningUsersApi
 
-All URIs are relative to *https://my.yoast.test:3000/*
+All URIs are relative to *https://my.yoast.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiProvisioningUserScheduleDeletePost**](ProvisioningUsersApi.md#apiprovisioninguserscheduledeletepost) | **POST** /api/provisioning/user/schedule-delete | Schedule a delete for a subscription
+[**provisioningUsersControllerScheduleDelete**](ProvisioningUsersApi.md#provisioninguserscontrollerscheduledelete) | **POST** /api/provisioning/user/schedule-delete | Schedule a delete for a subscription
 
-# **apiProvisioningUserScheduleDeletePost**
-> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto apiProvisioningUserScheduleDeletePost($body)
+# **provisioningUsersControllerScheduleDelete**
+> \Yoast\ProvisionerApiClient\Model\SubscriptionProvisioningResponseDto provisioningUsersControllerScheduleDelete($body)
 
 Schedule a delete for a subscription
 
@@ -17,19 +17,25 @@ Schedules a customer for gdpr delete.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\ProvisioningUsersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Yoast\ProvisionerApiClient\Model\ScheduleDeleteUserDto(); // \Yoast\ProvisionerApiClient\Model\ScheduleDeleteUserDto | 
 
 try {
-    $result = $apiInstance->apiProvisioningUserScheduleDeletePost($body);
+    $result = $apiInstance->provisioningUsersControllerScheduleDelete($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProvisioningUsersApi->apiProvisioningUserScheduleDeletePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProvisioningUsersApi->provisioningUsersControllerScheduleDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -46,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 

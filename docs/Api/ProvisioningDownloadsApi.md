@@ -1,14 +1,14 @@
 # Yoast\ProvisionerApiClient\ProvisioningDownloadsApi
 
-All URIs are relative to *https://my.yoast.test:3000/*
+All URIs are relative to *https://my.yoast.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**apiProvisioningDownloadsCurrentVersionGet**](ProvisioningDownloadsApi.md#apiprovisioningdownloadscurrentversionget) | **GET** /api/provisioning/downloads/currentVersion | Retrieve the current version for the productCode for the provisioner.
-[**apiProvisioningDownloadsCurrentZipGet**](ProvisioningDownloadsApi.md#apiprovisioningdownloadscurrentzipget) | **GET** /api/provisioning/downloads/currentZip | Redirect to the current zip for the productCode.
+[**provisioningDownloadsControllerCurrentVersion**](ProvisioningDownloadsApi.md#provisioningdownloadscontrollercurrentversion) | **GET** /api/provisioning/downloads/currentVersion | Retrieve the current version for the productCode for the provisioner.
+[**provisioningDownloadsControllerCurrentZip**](ProvisioningDownloadsApi.md#provisioningdownloadscontrollercurrentzip) | **GET** /api/provisioning/downloads/currentZip | Redirect to the current zip for the productCode.
 
-# **apiProvisioningDownloadsCurrentVersionGet**
-> string apiProvisioningDownloadsCurrentVersionGet($productCode)
+# **provisioningDownloadsControllerCurrentVersion**
+> string provisioningDownloadsControllerCurrentVersion($productCode)
 
 Retrieve the current version for the productCode for the provisioner.
 
@@ -18,19 +18,25 @@ This route returns the latest version of the product that is offered to the cust
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\ProvisioningDownloadsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $productCode = "productCode_example"; // string | The code used to create the product.
 
 try {
-    $result = $apiInstance->apiProvisioningDownloadsCurrentVersionGet($productCode);
+    $result = $apiInstance->provisioningDownloadsControllerCurrentVersion($productCode);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProvisioningDownloadsApi->apiProvisioningDownloadsCurrentVersionGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProvisioningDownloadsApi->provisioningDownloadsControllerCurrentVersion: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -47,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 
@@ -56,8 +62,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **apiProvisioningDownloadsCurrentZipGet**
-> apiProvisioningDownloadsCurrentZipGet($productCode)
+# **provisioningDownloadsControllerCurrentZip**
+> provisioningDownloadsControllerCurrentZip($productCode)
 
 Redirect to the current zip for the productCode.
 
@@ -67,18 +73,24 @@ If a new version is available, you can use this route to redirect to the zip of 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure HTTP basic authorization: basic
+$config = Yoast\ProvisionerApiClient\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new Yoast\ProvisionerApiClient\Api\ProvisioningDownloadsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $productCode = "productCode_example"; // string | The code used to create the product.
 
 try {
-    $apiInstance->apiProvisioningDownloadsCurrentZipGet($productCode);
+    $apiInstance->provisioningDownloadsControllerCurrentZip($productCode);
 } catch (Exception $e) {
-    echo 'Exception when calling ProvisioningDownloadsApi->apiProvisioningDownloadsCurrentZipGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProvisioningDownloadsApi->provisioningDownloadsControllerCurrentZip: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -95,7 +107,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basic](../../README.md#basic)
 
 ### HTTP request headers
 
