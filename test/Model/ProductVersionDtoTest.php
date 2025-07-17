@@ -1,6 +1,6 @@
 <?php
 /**
- * CancelProvisionedSubscriptionDtoTest
+ * ProductVersionDtoTest
  *
  * PHP version 5
  *
@@ -31,15 +31,15 @@ namespace Yoast\ProvisionerApiClient;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CancelProvisionedSubscriptionDtoTest Class Doc Comment
+ * ProductVersionDtoTest Class Doc Comment
  *
  * @category    Class
- * @description CancelProvisionedSubscriptionDto
+ * @description ProductVersionDto
  * @package     Yoast\ProvisionerApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CancelProvisionedSubscriptionDtoTest extends TestCase
+class ProductVersionDtoTest extends TestCase
 {
 
     /**
@@ -71,16 +71,37 @@ class CancelProvisionedSubscriptionDtoTest extends TestCase
     }
 
     /**
-     * Test "CancelProvisionedSubscriptionDto"
+     * Test "ProductVersionDto"
      */
-    public function testCancelProvisionedSubscriptionDto()
+    public function testProductVersionDto()
     {
     }
 
     /**
-     * Test attribute "immediately"
+     * Test attribute "name"
      */
-    public function testPropertyImmediately()
+    public function testPropertyName()
+    {
+    }
+
+    /**
+     * Test attribute "slug"
+     */
+    public function testPropertySlug()
+    {
+    }
+
+    /**
+     * Test attribute "version"
+     */
+    public function testPropertyVersion()
+    {
+    }
+
+    /**
+     * Test attribute "downloadUrl"
+     */
+    public function testPropertyDownloadUrl()
     {
     }
 }

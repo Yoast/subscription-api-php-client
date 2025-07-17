@@ -1,6 +1,6 @@
 <?php
 /**
- * SubscriptionProvisioningResponseDto
+ * ProductVersionDto
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Yoast\ProvisionerApiClient\ObjectSerializer;
 
 /**
- * SubscriptionProvisioningResponseDto Class Doc Comment
+ * ProductVersionDto Class Doc Comment
  *
  * @category Class
  * @package  Yoast\ProvisionerApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
+class ProductVersionDto implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubscriptionProvisioningResponseDto';
+    protected static $swaggerModelName = 'ProductVersionDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,10 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'iD' => 'string',
-        'subscriptionNumber' => 'string',
-        'status' => 'string',
-        'startDate' => 'int',
-        'endDate' => 'int',
-        'pluginDownloadUrls' => 'string[]',
-        'siteUrl' => 'string'
+        'name' => 'string',
+        'slug' => 'string',
+        'version' => 'string',
+        'downloadUrl' => 'string'
     ];
 
     /**
@@ -71,13 +68,10 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'iD' => null,
-        'subscriptionNumber' => null,
-        'status' => null,
-        'startDate' => null,
-        'endDate' => null,
-        'pluginDownloadUrls' => null,
-        'siteUrl' => null
+        'name' => null,
+        'slug' => null,
+        'version' => null,
+        'downloadUrl' => null
     ];
 
     /**
@@ -107,13 +101,10 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'iD' => 'ID',
-        'subscriptionNumber' => 'subscriptionNumber',
-        'status' => 'status',
-        'startDate' => 'startDate',
-        'endDate' => 'endDate',
-        'pluginDownloadUrls' => 'pluginDownloadUrls',
-        'siteUrl' => 'siteUrl'
+        'name' => 'name',
+        'slug' => 'slug',
+        'version' => 'version',
+        'downloadUrl' => 'downloadUrl'
     ];
 
     /**
@@ -122,13 +113,10 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'iD' => 'setID',
-        'subscriptionNumber' => 'setSubscriptionNumber',
-        'status' => 'setStatus',
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'pluginDownloadUrls' => 'setPluginDownloadUrls',
-        'siteUrl' => 'setSiteUrl'
+        'name' => 'setName',
+        'slug' => 'setSlug',
+        'version' => 'setVersion',
+        'downloadUrl' => 'setDownloadUrl'
     ];
 
     /**
@@ -137,13 +125,10 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'iD' => 'getID',
-        'subscriptionNumber' => 'getSubscriptionNumber',
-        'status' => 'getStatus',
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'pluginDownloadUrls' => 'getPluginDownloadUrls',
-        'siteUrl' => 'getSiteUrl'
+        'name' => 'getName',
+        'slug' => 'getSlug',
+        'version' => 'getVersion',
+        'downloadUrl' => 'getDownloadUrl'
     ];
 
     /**
@@ -204,13 +189,10 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['iD'] = isset($data['iD']) ? $data['iD'] : null;
-        $this->container['subscriptionNumber'] = isset($data['subscriptionNumber']) ? $data['subscriptionNumber'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['startDate'] = isset($data['startDate']) ? $data['startDate'] : null;
-        $this->container['endDate'] = isset($data['endDate']) ? $data['endDate'] : null;
-        $this->container['pluginDownloadUrls'] = isset($data['pluginDownloadUrls']) ? $data['pluginDownloadUrls'] : null;
-        $this->container['siteUrl'] = isset($data['siteUrl']) ? $data['siteUrl'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['downloadUrl'] = isset($data['downloadUrl']) ? $data['downloadUrl'] : null;
     }
 
     /**
@@ -222,26 +204,17 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['iD'] === null) {
-            $invalidProperties[] = "'iD' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['subscriptionNumber'] === null) {
-            $invalidProperties[] = "'subscriptionNumber' can't be null";
+        if ($this->container['slug'] === null) {
+            $invalidProperties[] = "'slug' can't be null";
         }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
+        if ($this->container['version'] === null) {
+            $invalidProperties[] = "'version' can't be null";
         }
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
-        }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
-        }
-        if ($this->container['pluginDownloadUrls'] === null) {
-            $invalidProperties[] = "'pluginDownloadUrls' can't be null";
-        }
-        if ($this->container['siteUrl'] === null) {
-            $invalidProperties[] = "'siteUrl' can't be null";
+        if ($this->container['downloadUrl'] === null) {
+            $invalidProperties[] = "'downloadUrl' can't be null";
         }
         return $invalidProperties;
     }
@@ -259,169 +232,97 @@ class SubscriptionProvisioningResponseDto implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets iD
+     * Gets name
      *
      * @return string
      */
-    public function getID()
+    public function getName()
     {
-        return $this->container['iD'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets iD
+     * Sets name
      *
-     * @param string $iD The subscription ID to be used privately.
+     * @param string $name name
      *
      * @return $this
      */
-    public function setID($iD)
+    public function setName($name)
     {
-        $this->container['iD'] = $iD;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets subscriptionNumber
+     * Gets slug
      *
      * @return string
      */
-    public function getSubscriptionNumber()
+    public function getSlug()
     {
-        return $this->container['subscriptionNumber'];
+        return $this->container['slug'];
     }
 
     /**
-     * Sets subscriptionNumber
+     * Sets slug
      *
-     * @param string $subscriptionNumber The subscription invoice number, can be communicated publicly.
+     * @param string $slug slug
      *
      * @return $this
      */
-    public function setSubscriptionNumber($subscriptionNumber)
+    public function setSlug($slug)
     {
-        $this->container['subscriptionNumber'] = $subscriptionNumber;
+        $this->container['slug'] = $slug;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets version
      *
      * @return string
      */
-    public function getStatus()
+    public function getVersion()
     {
-        return $this->container['status'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets status
+     * Sets version
      *
-     * @param string $status The status of the subscription.
+     * @param string $version version
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setVersion($version)
     {
-        $this->container['status'] = $status;
+        $this->container['version'] = $version;
 
         return $this;
     }
 
     /**
-     * Gets startDate
-     *
-     * @return int
-     */
-    public function getStartDate()
-    {
-        return $this->container['startDate'];
-    }
-
-    /**
-     * Sets startDate
-     *
-     * @param int $startDate The date the subscription has started.
-     *
-     * @return $this
-     */
-    public function setStartDate($startDate)
-    {
-        $this->container['startDate'] = $startDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets endDate
-     *
-     * @return int
-     */
-    public function getEndDate()
-    {
-        return $this->container['endDate'];
-    }
-
-    /**
-     * Sets endDate
-     *
-     * @param int $endDate The date the subscription will expire.
-     *
-     * @return $this
-     */
-    public function setEndDate($endDate)
-    {
-        $this->container['endDate'] = $endDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets pluginDownloadUrls
-     *
-     * @return string[]
-     */
-    public function getPluginDownloadUrls()
-    {
-        return $this->container['pluginDownloadUrls'];
-    }
-
-    /**
-     * Sets pluginDownloadUrls
-     *
-     * @param string[] $pluginDownloadUrls The URLs for the latest version of the download for the products in the subscription.
-     *
-     * @return $this
-     */
-    public function setPluginDownloadUrls($pluginDownloadUrls)
-    {
-        $this->container['pluginDownloadUrls'] = $pluginDownloadUrls;
-
-        return $this;
-    }
-
-    /**
-     * Gets siteUrl
+     * Gets downloadUrl
      *
      * @return string
      */
-    public function getSiteUrl()
+    public function getDownloadUrl()
     {
-        return $this->container['siteUrl'];
+        return $this->container['downloadUrl'];
     }
 
     /**
-     * Sets siteUrl
+     * Sets downloadUrl
      *
-     * @param string $siteUrl The URL for the site connected to this subscription.
+     * @param string $downloadUrl downloadUrl
      *
      * @return $this
      */
-    public function setSiteUrl($siteUrl)
+    public function setDownloadUrl($downloadUrl)
     {
-        $this->container['siteUrl'] = $siteUrl;
+        $this->container['downloadUrl'] = $downloadUrl;
 
         return $this;
     }

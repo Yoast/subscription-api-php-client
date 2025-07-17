@@ -1,6 +1,6 @@
 <?php
 /**
- * CancelProvisionedSubscriptionDto
+ * ProductVersionsDto
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Yoast\ProvisionerApiClient\ObjectSerializer;
 
 /**
- * CancelProvisionedSubscriptionDto Class Doc Comment
+ * ProductVersionsDto Class Doc Comment
  *
  * @category Class
  * @package  Yoast\ProvisionerApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
+class ProductVersionsDto implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CancelProvisionedSubscriptionDto';
+    protected static $swaggerModelName = 'ProductVersionsDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'immediately' => 'bool'
+        'versions' => '\Yoast\ProvisionerApiClient\Model\ProductVersionDto[]'
     ];
 
     /**
@@ -65,7 +65,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'immediately' => null
+        'versions' => null
     ];
 
     /**
@@ -95,7 +95,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'immediately' => 'immediately'
+        'versions' => 'versions'
     ];
 
     /**
@@ -104,7 +104,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'immediately' => 'setImmediately'
+        'versions' => 'setVersions'
     ];
 
     /**
@@ -113,7 +113,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'immediately' => 'getImmediately'
+        'versions' => 'getVersions'
     ];
 
     /**
@@ -174,7 +174,7 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['immediately'] = isset($data['immediately']) ? $data['immediately'] : false;
+        $this->container['versions'] = isset($data['versions']) ? $data['versions'] : null;
     }
 
     /**
@@ -186,6 +186,9 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['versions'] === null) {
+            $invalidProperties[] = "'versions' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -202,25 +205,25 @@ class CancelProvisionedSubscriptionDto implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets immediately
+     * Gets versions
      *
-     * @return bool
+     * @return \Yoast\ProvisionerApiClient\Model\ProductVersionDto[]
      */
-    public function getImmediately()
+    public function getVersions()
     {
-        return $this->container['immediately'];
+        return $this->container['versions'];
     }
 
     /**
-     * Sets immediately
+     * Sets versions
      *
-     * @param bool $immediately Immediately will cancel the subscription directly,otherwise it will end when the period has expired.
+     * @param \Yoast\ProvisionerApiClient\Model\ProductVersionDto[] $versions versions
      *
      * @return $this
      */
-    public function setImmediately($immediately)
+    public function setVersions($versions)
     {
-        $this->container['immediately'] = $immediately;
+        $this->container['versions'] = $versions;
 
         return $this;
     }
